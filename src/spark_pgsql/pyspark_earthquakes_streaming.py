@@ -144,6 +144,8 @@ def start_streaming(df_parsed: DataFrame, spark: SparkSession) -> Any:
         POSTGRES_URL, "earthquakes", properties=POSTGRES_PROPERTIES
     ).select("id")
 
+    
+
     query: Any = (
         df_parsed.writeStream.foreachBatch(
             lambda batch_df, _: (
